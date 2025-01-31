@@ -10,9 +10,15 @@ import os
 import datetime
 import folder_paths
 
-comfy_path = os.path.dirname(folder_paths.__file__)
+comfy_path = folder_paths.get_folder_paths("custom_nodes")[0]
 
-image_magick_path = f'{comfy_path}/custom_nodes/ComfyUI-ImageMagick'
+image_magick_path = f'{comfy_path}/ComfyUI-ImageMagick'
+
+old_comfy_path = os.path.dirname(folder_paths.__file__)
+
+print(f"[EmProps] Old comfy path: {old_comfy_path}")
+print(f"[EmProps] Image magick path: {image_magick_path}")
+
 import uuid
 class ImageMagick:
     def __init__(self):
