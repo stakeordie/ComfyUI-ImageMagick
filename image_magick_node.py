@@ -48,6 +48,62 @@ class ImageMagick:
                     "multiline": False,
                     "default": ""
                 }),
+                "param7": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param8": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param9": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param10": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param11": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param12": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param13": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param14": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param15": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param16": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param17": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param18": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param19": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
+                "param20": ("STRING", {
+                    "multiline": False,
+                    "default": ""
+                }),
             },
             "optional": {
                 "image2": ("IMAGE",),
@@ -110,35 +166,33 @@ class ImageMagick:
 
         return image
 
-    def execute(self, image1, param1, param2, param3, param4, param5, param6, image2 = None, image3 = None):
+    def execute(self, image1, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, 
+                param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, image2=None, image3=None):
         image1_store_path = self.save_image(image1)
 
         image2_store_path = None
-
         if not image2 is None:
             image2_store_path = self.save_image(image2)
 
         image3_store_path = None
-
         if not image3 is None:
             image3_store_path = self.save_image(image3)
 
         now = datetime.datetime.now()
-
         timestamp = now.strftime("%Y%m%d_%H%M%S")
-
         img_file_name = f'ImageMagick_{timestamp}.png'
-
         out_path = f'{image_magick_path}/output'
 
         if not os.path.exists(out_path):
             os.makedirs(out_path)
 
         image_out_path = f'{out_path}/{img_file_name}'
-
         image_out_path = os.path.normpath(image_out_path)
 
-        params = ['magick', image1_store_path, image2_store_path, image3_store_path, param1, param2, param3, param4, param5, param6, image_out_path]
+        params = ['magick', image1_store_path, image2_store_path, image3_store_path, 
+                param1, param2, param3, param4, param5, param6, param7, param8, param9, param10,
+                param11, param12, param13, param14, param15, param16, param17, param18, param19, param20,
+                image_out_path]
 
         filtered_params = [param for param in params if param not in ['', None]]
 
