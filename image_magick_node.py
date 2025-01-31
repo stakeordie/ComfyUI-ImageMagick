@@ -12,7 +12,7 @@ import folder_paths
 
 comfy_path = folder_paths.get_folder_paths("custom_nodes")[0]
 
-image_magick_path = f'{comfy_path}/ComfyUI-ImageMagick'
+image_magick_path = f'{comfy_path}ComfyUI-ImageMagick'
 
 old_comfy_path = os.path.dirname(folder_paths.__file__)
 
